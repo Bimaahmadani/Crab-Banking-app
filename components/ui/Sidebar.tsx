@@ -15,7 +15,7 @@ const Sidebar = ({user}:SiderbarProps) => {
             <Link href="/"
             className='mb-12
             cursor-pointer
-            items-center gap-2
+            flex items-center gap-2
             '
             >
                 <Image
@@ -40,7 +40,21 @@ const Sidebar = ({user}:SiderbarProps) => {
                 'bg-bankGradient': isActive
                 })}
                 >
-                    {item.label}
+                    <div className="relative size-6">
+                        <Image
+                            src={item.imgURL}
+                            alt={item.label}
+                            fill
+                            className={cn({
+                                'brightness-[3] invert-0': isActive
+                            })}
+                        />
+                    </div>
+                    <p className={cn('sidebar-label', {
+                            '!text-white': isActive
+                        })}>
+                            {item.label}
+                    </p>
                 </Link>
             )
 
